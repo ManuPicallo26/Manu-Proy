@@ -1,1 +1,1 @@
-![Logo Synorah](logo-synorah.png)
+![Logo Synorah](LOGO-SYNORAH.png)
