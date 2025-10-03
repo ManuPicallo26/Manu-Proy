@@ -140,12 +140,21 @@
         .logo img {
             height: 40px;
             width: auto;
+            display: block;
         }
 
         @media (min-width: 768px) {
             .logo img {
                 height: 50px;
             }
+        }
+
+        /* Fallback si la imagen no carga */
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
         }
 
         .nav-cta {
@@ -605,8 +614,7 @@
         <div class="container">
             <div class="nav-content">
                 <a href="#" class="logo">
-                    <img src="LOGO-SYNORAH.png" alt="Synorah Logo">
-                
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDgwMCA4MDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwhLS0gQm9sc2EgLS0+CjxwYXRoIGQ9Ik0yNDAgNjAwIEM0MCwNDAgNjAgMjgwIDI4MCAyODAgQzUwMCAyODAgNTIwIDQ4MCA0MDAgNTYwIEw0MDAgNjAwIFoiIHN0cm9rZT0iIzFkNGVkOCIgc3Ryb2tlLXdpZHRoPSI0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjxwYXRoIGQ9Ik01NjAgNjAwIEM3NjAsNDQwIDc0MCAyODAgNTIwIDI4MCBDMzAwIDI4MCAyODAgNDgwIDQwMCA1NjAgTDQwMCA2MDAiIHN0cm9rZT0iIzFkNGVkOCIgc3Ryb2tlLXdpZHRoPSI0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjwhLS0gQXNhIC0tPgo8cGF0aCBkPSJNMzIwIDE4MCBRNDAwIDEyMCA0ODAgMTgwIiBzdHJva2U9IiMxZDRlZDgiIHN0cm9rZS13aWR0aD0iNDAiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8IS0tIE1vw7FvIC0tPgo8cGF0aCBkPSJNMzIwIDI0MCBMMjgwIDI4MCBMMzIwIDMyMCBMMzYwIDI4MCBMIC0tIHN0cm9rZT0iIzFkNGVkOCIgc3Ryb2tlLXdpZHRoPSIzMCIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CjxwYXRoIGQ9Ik00ODAgMjQwIEw0NDAgMjgwIEw0ODAgMzIwIEw1MjAgMjgwIEw0ODAgMjQwIiBzdHJva2U9IiMxZDRlZDgiIHN0cm9rZS13aWR0aD0iMzAiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8IS0tIEVzdHJlbGxhcyAtLT4KPHN0YXIgY3g9IjQ1MCIgY3k9IjQyMCIgcj0iMjAiIGZpbGw9IiMxZDRlZDgiLz4KPHN0YXIgY3g9IjQ4MCIgY3k9IjQ3MCIgcj0iMTUiIGZpbGw9IiMxZDRlZDgiLz4KPHN0YXIgY3g9IjUxMCIgY3k9IjQzNSIgcj0iMTIiIGZpbGw9IiMxZDRlZDgiLz4KPCEtLSBURVhUTyAtLT4KPHRleHQgeD0iNDAwIiB5PSI3MjAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMjAiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiMyNjI2MjYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlNZTk9SQUg8L3RleHQ+Cjwvc3ZnPg==" alt="Synorah Logo">
                 </a>
                 <a href="#contacto" class="btn btn-secondary nav-cta">Solicitar Muestra</a>
             </div>
@@ -782,15 +790,15 @@
                     <p class="section-subtitle" data-i18n="contact-subtitle">¿Te gustaría ser uno de los miembros fundadores de esta red? Completa el formulario y te mostraremos cómo Synorah puede potenciar el compromiso de tu equipo.</p>
                 </div>
                 <!-- IMPORTANTE: Reemplaza 'YOUR_FORM_ID' con tu ID real de Formspree -->
-                <!-- Ejemplo: si tu URL es https://formspree.io/f/xyzabc123, usa solo 'xyzabc123' -->
-                <form class="contact-form" action="https://formspree.io/f/xgvnynjr">
+                <!-- Ejemplo: si tu URL es https://formspree.io/f/xyzabc123, reemplaza YOUR_FORM_ID por xyzabc123 -->
+                <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" accept-charset="UTF-8">
                     <div class="form-group">
                         <label for="name" data-i18n="form-name">Nombre Completo *</label>
                         <input type="text" id="name" name="name" required>
                     </div>
                     <div class="form-group">
                         <label for="email" data-i18n="form-email">Email Corporativo *</label>
-                        <input type="email" id="email" name="email" required>
+                        <input type="email" id="email" name="_replyto" required>
                     </div>
                     <div class="form-group">
                         <label for="company" data-i18n="form-company">Nombre de tu Empresa *</label>
@@ -800,6 +808,8 @@
                         <label for="message" data-i18n="form-message">Mensaje</label>
                         <textarea id="message" name="message" data-i18n="form-placeholder" placeholder="Cuéntanos sobre tu empresa y tus necesidades..."></textarea>
                     </div>
+                    <!-- Campo honeypot para prevenir spam -->
+                    <input type="text" name="_gotcha" style="display:none">
                     <button type="submit" class="btn btn-primary btn-large form-button" data-i18n="form-submit">
                         Obtener más información
                     </button>
