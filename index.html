@@ -102,6 +102,35 @@
             gap: 1rem;
         }
 
+        .lang-switcher {
+            display: flex;
+            background: var(--secondary-color);
+            border-radius: 0.5rem;
+            padding: 0.25rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .lang-btn {
+            padding: 0.5rem 0.75rem;
+            border: none;
+            background: transparent;
+            color: var(--text-light);
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 0.375rem;
+            transition: all 0.3s ease;
+            font-size: 0.875rem;
+        }
+
+        .lang-btn.active {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .lang-btn:hover:not(.active) {
+            color: var(--primary-color);
+        }
+
         .logo {
             display: flex;
             align-items: center;
@@ -330,6 +359,73 @@
         .service-card p {
             color: var(--text-light);
             line-height: 1.7;
+        }
+
+        /* Story Mapping Section */
+        .story-mapping {
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .story-mapping h2 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+
+        .story-mapping .section-subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+        }
+
+        .pdf-preview {
+            background: var(--white);
+            border-radius: 1rem;
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .pdf-preview-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .pdf-preview-content {
+                flex-direction: row;
+                text-align: left;
+            }
+        }
+
+        .pdf-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--white);
+            flex-shrink: 0;
+        }
+
+        .pdf-info {
+            flex: 1;
+        }
+
+        .pdf-info h3 {
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .pdf-info p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
         }
 
         /* Cases Section */
@@ -579,7 +675,13 @@
                 <a href="#" class="logo">
                     <img src="LOGO-SYNORAH.png" alt="Synorah Logo">
                 </a>
-                <a href="#contacto" class="btn btn-secondary nav-cta">Solicitar Muestra</a>
+                <div class="nav-right">
+                    <div class="lang-switcher">
+                        <button class="lang-btn active" data-lang="es">ES</button>
+                        <button class="lang-btn" data-lang="en">EN</button>
+                    </div>
+                    <a href="#contacto" class="btn btn-secondary nav-cta" data-i18n="nav-cta">Solicitar Muestra</a>
+                </div>
             </div>
         </div>
     </nav>
@@ -588,11 +690,11 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Más beneficios para tus empleados, con una gestión simple y eficiente</h1>
-                <p class="hero-subtitle">Convertimos los descuentos de cada compañía en una red compartida: tus empleados acceden a tus productos y también a los de empresas de distintos rubros. Más variedad para ellos, menos carga para vos.</p>
+                <h1 data-i18n="hero-title">Más beneficios para tus empleados, con una gestión simple y eficiente</h1>
+                <p class="hero-subtitle" data-i18n="hero-subtitle">Convertimos los descuentos de cada compañía en una red compartida: tus empleados acceden a tus productos y también a los de empresas de distintos rubros. Más variedad para ellos, menos carga para vos.</p>
                 <div class="hero-cta">
-                    <a href="#servicios" class="btn btn-primary btn-large">Conocé cómo funciona</a>
-                    <a href="#contacto" class="btn btn-secondary btn-large">Solicitar Muestra</a>
+                    <a href="#servicios" class="btn btn-primary btn-large" data-i18n="hero-btn-primary">Conocé cómo funciona</a>
+                    <a href="#contacto" class="btn btn-secondary btn-large" data-i18n="hero-btn-secondary">Solicitar Muestra</a>
                 </div>
                 <div class="hero-image">
                     <img src="https://placehold.co/1200x600/1d4ed8/ffffff?text=Marketplace+Corporativo" alt="Plataforma Synorah">
@@ -605,37 +707,61 @@
     <section id="servicios" class="services">
         <div class="container">
             <div class="section-header">
-                <h2>¿Cómo funciona Synorah?</h2>
-                <p class="section-subtitle">Una plataforma integral que transforma la gestión de beneficios corporativos en una experiencia simple y valiosa</p>
+                <h2 data-i18n="services-title">¿Cómo funciona Synorah?</h2>
+                <p class="section-subtitle" data-i18n="services-subtitle">Una plataforma integral que transforma la gestión de beneficios corporativos en una experiencia simple y valiosa</p>
             </div>
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-network-wired"></i>
                     </div>
-                    <h3>Red Colaborativa</h3>
-                    <p>Conectamos empresas no competidoras para crear una red de beneficios compartidos. Tus empleados acceden a descuentos en múltiples categorías.</p>
+                    <h3 data-i18n="service1-title">Red Colaborativa</h3>
+                    <p data-i18n="service1-desc">Conectamos empresas no competidoras para crear una red de beneficios compartidos. Tus empleados acceden a descuentos en múltiples categorías.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-shopping-cart"></i>
                     </div>
-                    <h3>Marketplace Centralizado</h3>
-                    <p>Una única plataforma con alimentos, indumentaria, tecnología y más. Simplificamos la experiencia de compra con catálogos mensuales.</p>
+                    <h3 data-i18n="service2-title">Marketplace Centralizado</h3>
+                    <p data-i18n="service2-desc">Una única plataforma con alimentos, indumentaria, tecnología y más. Simplificamos la experiencia de compra con catálogos mensuales.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-chart-line"></i>
                     </div>
-                    <h3>Gestión Eficiente</h3>
-                    <p>Nosotros nos encargamos de todo: organización, comunicación y logística. Vos te enfocás en tu negocio principal.</p>
+                    <h3 data-i18n="service3-title">Gestión Eficiente</h3>
+                    <p data-i18n="service3-desc">Nosotros nos encargamos de todo: organización, comunicación y logística. Vos te enfocás en tu negocio principal.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-users"></i>
                     </div>
-                    <h3>Visibilidad de Marca</h3>
-                    <p>Exhibí tus productos ante empleados de otras compañías. Generá nuevas relaciones comerciales y expandí tu alcance.</p>
+                    <h3 data-i18n="service4-title">Visibilidad de Marca</h3>
+                    <p data-i18n="service4-desc">Exhibí tus productos ante empleados de otras compañías. Generá nuevas relaciones comerciales y expandí tu alcance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Mapping Section -->
+    <section id="story-mapping" class="story-mapping">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="story-title">Story Mapping</h2>
+                <p class="section-subtitle" data-i18n="story-subtitle">Descubre nuestra visión completa y la estrategia detrás de Synorah</p>
+            </div>
+            <div class="pdf-preview">
+                <div class="pdf-preview-content">
+                    <div class="pdf-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <div class="pdf-info">
+                        <h3 data-i18n="pdf-title">The New Power of Corporate Connections</h3>
+                        <p data-i18n="pdf-description">Explora nuestro roadmap completo, análisis de stakeholders, arquitectura de solución y proyecciones de impacto.</p>
+                        <a href="E-commerce Roadmap Illustrative Green Presentation.pdf" target="_blank" class="btn btn-primary" data-i18n="pdf-btn">
+                            <i class="fas fa-download"></i> Ver Presentación
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -645,24 +771,24 @@
     <section id="casos" class="cases">
         <div class="container">
             <div class="section-header">
-                <h2>Casos de Éxito</h2>
-                <p class="section-subtitle">Empresas que ya están transformando sus beneficios corporativos con Synorah</p>
+                <h2 data-i18n="cases-title">Casos de Éxito</h2>
+                <p class="section-subtitle" data-i18n="cases-subtitle">Empresas que ya están transformando sus beneficios corporativos con Synorah</p>
             </div>
             <div class="cases-grid">
                 <div class="case-card">
                     <div class="case-image">
                         <img src="https://placehold.co/400x300/0ea5e9/ffffff?text=PYME+Tech" alt="Caso PYME">
                     </div>
-                    <h3>PYME Tecnológica</h3>
-                    <p>Una empresa de software de 45 empleados transformó sus beneficios limitados en una red de 150+ productos, mejorando la satisfacción laboral.</p>
+                    <h3 data-i18n="case1-title">PYME Tecnológica</h3>
+                    <p data-i18n="case1-desc">Una empresa de software de 45 empleados transformó sus beneficios limitados en una red de 150+ productos, mejorando la satisfacción laboral.</p>
                     <div class="metrics">
                         <div class="metric">
                             <span class="metric-value">85%</span>
-                            <span class="metric-label">Satisfacción</span>
+                            <span class="metric-label" data-i18n="case1-metric1">Satisfacción</span>
                         </div>
                         <div class="metric">
                             <span class="metric-value">3x</span>
-                            <span class="metric-label">Más opciones</span>
+                            <span class="metric-label" data-i18n="case1-metric2">Más opciones</span>
                         </div>
                     </div>
                 </div>
@@ -670,16 +796,16 @@
                     <div class="case-image">
                         <img src="https://placehold.co/400x300/1d4ed8/ffffff?text=Retail+Corp" alt="Caso Retail">
                     </div>
-                    <h3>Empresa Retail</h3>
-                    <p>Cadena de retail con 200 empleados delegó la gestión de beneficios, ahorrando 15 horas mensuales de trabajo administrativo.</p>
+                    <h3 data-i18n="case2-title">Empresa Retail</h3>
+                    <p data-i18n="case2-desc">Cadena de retail con 200 empleados delegó la gestión de beneficios, ahorrando 15 horas mensuales de trabajo administrativo.</p>
                     <div class="metrics">
                         <div class="metric">
                             <span class="metric-value">15h</span>
-                            <span class="metric-label">Ahorradas</span>
+                            <span class="metric-label" data-i18n="case2-metric1">Ahorradas</span>
                         </div>
                         <div class="metric">
                             <span class="metric-value">92%</span>
-                            <span class="metric-label">Uso activo</span>
+                            <span class="metric-label" data-i18n="case2-metric2">Uso activo</span>
                         </div>
                     </div>
                 </div>
@@ -687,16 +813,16 @@
                     <div class="case-image">
                         <img src="https://placehold.co/400x300/10b981/ffffff?text=Multinacional" alt="Caso Multinacional">
                     </div>
-                    <h3>Multinacional</h3>
-                    <p>Empresa con 500+ empleados fortaleció su marca empleadora con descuentos de hasta 40%, sin añadir carga operativa a RRHH.</p>
+                    <h3 data-i18n="case3-title">Multinacional</h3>
+                    <p data-i18n="case3-desc">Empresa con 500+ empleados fortaleció su marca empleadora con descuentos de hasta 40%, sin añadir carga operativa a RRHH.</p>
                     <div class="metrics">
                         <div class="metric">
                             <span class="metric-value">40%</span>
-                            <span class="metric-label">Descuentos</span>
+                            <span class="metric-label" data-i18n="case3-metric1">Descuentos</span>
                         </div>
                         <div class="metric">
                             <span class="metric-value">0h</span>
-                            <span class="metric-label">Gestión</span>
+                            <span class="metric-label" data-i18n="case3-metric2">Gestión</span>
                         </div>
                     </div>
                 </div>
@@ -709,28 +835,28 @@
         <div class="container">
             <div class="contact-content">
                 <div class="section-header">
-                    <h2>Transforma tus Beneficios Corporativos</h2>
-                    <p class="section-subtitle">¿Te gustaría ser uno de los miembros fundadores de esta red? Completa el formulario y te mostraremos cómo Synorah puede potenciar el compromiso de tu equipo.</p>
+                    <h2 data-i18n="contact-title">Transforma tus Beneficios Corporativos</h2>
+                    <p class="section-subtitle" data-i18n="contact-subtitle">¿Te gustaría ser uno de los miembros fundadores de esta red? Completa el formulario y te mostraremos cómo Synorah puede potenciar el compromiso de tu equipo.</p>
                 </div>
                 <form class="contact-form" action="https://formspree.io/f/xgvnynjr" method="POST" accept-charset="UTF-8">
                     <div class="form-group">
-                        <label for="name">Nombre Completo *</label>
+                        <label for="name" data-i18n="form-name">Nombre Completo *</label>
                         <input type="text" id="name" name="name" required>
                     </div>
                     <div class="form-group">
-                        <label for="email">Email Corporativo *</label>
+                        <label for="email" data-i18n="form-email">Email Corporativo *</label>
                         <input type="email" id="email" name="_replyto" required>
                     </div>
                     <div class="form-group">
-                        <label for="company">Nombre de tu Empresa *</label>
+                        <label for="company" data-i18n="form-company">Nombre de tu Empresa *</label>
                         <input type="text" id="company" name="company" required>
                     </div>
                     <div class="form-group">
-                        <label for="message">Mensaje</label>
-                        <textarea id="message" name="message" placeholder="Cuéntanos sobre tu empresa y tus necesidades..."></textarea>
+                        <label for="message" data-i18n="form-message">Mensaje</label>
+                        <textarea id="message" name="message" data-i18n-placeholder="form-placeholder"></textarea>
                     </div>
                     <input type="text" name="_gotcha" style="display:none">
-                    <button type="submit" class="btn btn-primary btn-large form-button">
+                    <button type="submit" class="btn btn-primary btn-large form-button" data-i18n="form-submit">
                         Obtener más información
                     </button>
                 </form>
@@ -744,7 +870,7 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <h3>SYNORAH</h3>
-                    <p>Potenciamos empleados, elevamos empresas. Transformando los beneficios corporativos en redes de valor compartido.</p>
+                    <p data-i18n="footer-description">Potenciamos empleados, elevamos empresas. Transformando los beneficios corporativos en redes de valor compartido.</p>
                     <div class="social-links">
                         <a href="#" class="social-link" aria-label="LinkedIn">
                             <i class="fab fa-linkedin-in"></i>
@@ -761,20 +887,168 @@
                     </div>
                 </div>
                 <div class="footer-links">
-                    <h4>Enlaces Rápidos</h4>
+                    <h4 data-i18n="footer-links-title">Enlaces Rápidos</h4>
                     <ul>
-                        <li><a href="#servicios">Cómo funciona</a></li>
-                        <li><a href="#casos">Casos de éxito</a></li>
-                        <li><a href="#contacto">Contacto</a></li>
-                        <li><a href="#">Términos y condiciones</a></li>
-                        <li><a href="#">Política de privacidad</a></li>
+                        <li><a href="#servicios" data-i18n="footer-link-how">Cómo funciona</a></li>
+                        <li><a href="#story-mapping" data-i18n="footer-link-story">Story Mapping</a></li>
+                        <li><a href="#casos" data-i18n="footer-link-cases">Casos de éxito</a></li>
+                        <li><a href="#contacto" data-i18n="footer-link-contact">Contacto</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Synorah. Todos los derechos reservados.</p>
+                <p data-i18n="footer-rights">&copy; 2025 Synorah. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
+
+    <script>
+        // Traducciones
+        const translations = {
+            es: {
+                'nav-cta': 'Solicitar Muestra',
+                'hero-title': 'Más beneficios para tus empleados, con una gestión simple y eficiente',
+                'hero-subtitle': 'Convertimos los descuentos de cada compañía en una red compartida: tus empleados acceden a tus productos y también a los de empresas de distintos rubros. Más variedad para ellos, menos carga para vos.',
+                'hero-btn-primary': 'Conocé cómo funciona',
+                'hero-btn-secondary': 'Solicitar Muestra',
+                'services-title': '¿Cómo funciona Synorah?',
+                'services-subtitle': 'Una plataforma integral que transforma la gestión de beneficios corporativos en una experiencia simple y valiosa',
+                'service1-title': 'Red Colaborativa',
+                'service1-desc': 'Conectamos empresas no competidoras para crear una red de beneficios compartidos. Tus empleados acceden a descuentos en múltiples categorías.',
+                'service2-title': 'Marketplace Centralizado',
+                'service2-desc': 'Una única plataforma con alimentos, indumentaria, tecnología y más. Simplificamos la experiencia de compra con catálogos mensuales.',
+                'service3-title': 'Gestión Eficiente',
+                'service3-desc': 'Nosotros nos encargamos de todo: organización, comunicación y logística. Vos te enfocás en tu negocio principal.',
+                'service4-title': 'Visibilidad de Marca',
+                'service4-desc': 'Exhibí tus productos ante empleados de otras compañías. Generá nuevas relaciones comerciales y expandí tu alcance.',
+                'story-title': 'Story Mapping',
+                'story-subtitle': 'Descubre nuestra visión completa y la estrategia detrás de Synorah',
+                'pdf-title': 'The New Power of Corporate Connections',
+                'pdf-description': 'Explora nuestro roadmap completo, análisis de stakeholders, arquitectura de solución y proyecciones de impacto.',
+                'pdf-btn': 'Ver Presentación',
+                'cases-title': 'Casos de Éxito',
+                'cases-subtitle': 'Empresas que ya están transformando sus beneficios corporativos con Synorah',
+                'case1-title': 'PYME Tecnológica',
+                'case1-desc': 'Una empresa de software de 45 empleados transformó sus beneficios limitados en una red de 150+ productos, mejorando la satisfacción laboral.',
+                'case1-metric1': 'Satisfacción',
+                'case1-metric2': 'Más opciones',
+                'case2-title': 'Empresa Retail',
+                'case2-desc': 'Cadena de retail con 200 empleados delegó la gestión de beneficios, ahorrando 15 horas mensuales de trabajo administrativo.',
+                'case2-metric1': 'Ahorradas',
+                'case2-metric2': 'Uso activo',
+                'case3-title': 'Multinacional',
+                'case3-desc': 'Empresa con 500+ empleados fortaleció su marca empleadora con descuentos de hasta 40%, sin añadir carga operativa a RRHH.',
+                'case3-metric1': 'Descuentos',
+                'case3-metric2': 'Gestión',
+                'contact-title': 'Transforma tus Beneficios Corporativos',
+                'contact-subtitle': '¿Te gustaría ser uno de los miembros fundadores de esta red? Completa el formulario y te mostraremos cómo Synorah puede potenciar el compromiso de tu equipo.',
+                'form-name': 'Nombre Completo *',
+                'form-email': 'Email Corporativo *',
+                'form-company': 'Nombre de tu Empresa *',
+                'form-message': 'Mensaje',
+                'form-placeholder': 'Cuéntanos sobre tu empresa y tus necesidades...',
+                'form-submit': 'Obtener más información',
+                'footer-description': 'Potenciamos empleados, elevamos empresas. Transformando los beneficios corporativos en redes de valor compartido.',
+                'footer-links-title': 'Enlaces Rápidos',
+                'footer-link-how': 'Cómo funciona',
+                'footer-link-story': 'Story Mapping',
+                'footer-link-cases': 'Casos de éxito',
+                'footer-link-contact': 'Contacto',
+                'footer-rights': '© 2025 Synorah. Todos los derechos reservados.'
+            },
+            en: {
+                'nav-cta': 'Request Sample',
+                'hero-title': 'More benefits for your employees, with simple and efficient management',
+                'hero-subtitle': 'We turn each company\'s discounts into a shared network: your employees access your products and also those from companies in different industries. More variety for them, less burden for you.',
+                'hero-btn-primary': 'Learn how it works',
+                'hero-btn-secondary': 'Request Sample',
+                'services-title': 'How does Synorah work?',
+                'services-subtitle': 'A comprehensive platform that transforms corporate benefits management into a simple and valuable experience',
+                'service1-title': 'Collaborative Network',
+                'service1-desc': 'We connect non-competing companies to create a shared benefits network. Your employees access discounts across multiple categories.',
+                'service2-title': 'Centralized Marketplace',
+                'service2-desc': 'A single platform with food, clothing, technology and more. We simplify the shopping experience with monthly catalogs.',
+                'service3-title': 'Efficient Management',
+                'service3-desc': 'We take care of everything: organization, communication and logistics. You focus on your core business.',
+                'service4-title': 'Brand Visibility',
+                'service4-desc': 'Showcase your products to employees of other companies. Generate new business relationships and expand your reach.',
+                'story-title': 'Story Mapping',
+                'story-subtitle': 'Discover our complete vision and the strategy behind Synorah',
+                'pdf-title': 'The New Power of Corporate Connections',
+                'pdf-description': 'Explore our complete roadmap, stakeholder analysis, solution architecture and impact projections.',
+                'pdf-btn': 'View Presentation',
+                'cases-title': 'Success Stories',
+                'cases-subtitle': 'Companies that are already transforming their corporate benefits with Synorah',
+                'case1-title': 'Tech SME',
+                'case1-desc': 'A software company with 45 employees transformed its limited benefits into a network of 150+ products, improving job satisfaction.',
+                'case1-metric1': 'Satisfaction',
+                'case1-metric2': 'More options',
+                'case2-title': 'Retail Company',
+                'case2-desc': 'Retail chain with 200 employees delegated benefits management, saving 15 hours per month of administrative work.',
+                'case2-metric1': 'Saved',
+                'case2-metric2': 'Active use',
+                'case3-title': 'Multinational',
+                'case3-desc': 'Company with 500+ employees strengthened its employer brand with discounts up to 40%, without adding operational burden to HR.',
+                'case3-metric1': 'Discounts',
+                'case3-metric2': 'Management',
+                'contact-title': 'Transform Your Corporate Benefits',
+                'contact-subtitle': 'Would you like to be one of the founding members of this network? Fill out the form and we\'ll show you how Synorah can boost your team\'s engagement.',
+                'form-name': 'Full Name *',
+                'form-email': 'Corporate Email *',
+                'form-company': 'Company Name *',
+                'form-message': 'Message',
+                'form-placeholder': 'Tell us about your company and your needs...',
+                'form-submit': 'Get more information',
+                'footer-description': 'We empower employees, elevate companies. Transforming corporate benefits into shared value networks.',
+                'footer-links-title': 'Quick Links',
+                'footer-link-how': 'How it works',
+                'footer-link-story': 'Story Mapping',
+                'footer-link-cases': 'Success stories',
+                'footer-link-contact': 'Contact',
+                'footer-rights': '© 2025 Synorah. All rights reserved.'
+            }
+        };
+
+        // Función para cambiar idioma
+        function changeLanguage(lang) {
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+
+            // Manejar placeholder especial
+            const placeholderEl = document.querySelector('[data-i18n-placeholder]');
+            if (placeholderEl) {
+                placeholderEl.placeholder = translations[lang]['form-placeholder'];
+            }
+
+            // Actualizar botones de idioma
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+            });
+
+            // Guardar preferencia
+            localStorage.setItem('preferred-language', lang);
+
+            // Actualizar atributo lang del HTML
+            document.documentElement.lang = lang;
+        }
+
+        // Inicializar
+        document.addEventListener('DOMContentLoaded', () => {
+            // Cargar idioma guardado o usar español por defecto
+            const savedLang = localStorage.getItem('preferred-language') || 'es';
+            changeLanguage(savedLang);
+
+            // Event listeners para botones de idioma
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    changeLanguage(btn.getAttribute('data-lang'));
+                });
+            });
+        });
+    </script>
 </body>
 </html>
